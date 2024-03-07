@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    image: car-catalog-app
+    build:
+      dockerfile: Dockerfile
+    container_name: car-catalog-app
+    ports:
+      - "9090:9090"
+    depends_on:
+      - postgres
+    environment:
+      - DSN=host=postgres user=postgres password=postgres dbname=carcatalog sslmode=disable
+    
+
+  postgres:
+    image: postgres:latest
+    container_name: car-catalog-db
+    restart: always
+    environment:
+      POSTGRES_DB: carcatalog
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/data/db
+
+volumes:
+  postgres_data:
