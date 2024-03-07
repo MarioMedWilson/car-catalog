@@ -57,5 +57,26 @@ Note that if it didn't from first time terminate and rerun
 | `PUT`    | `/car-type/:id`                          | Updates a car type by ID.                |
 | `DELETE` | `/car-type/:id`                          | Deletes a car type by ID.                |
 
+#### Examples of requests
+##### POST /car-type 
+`Request body create type`
+```
+{
+    "type": "Diesel cars"
+}
+```
+##### POST /car
+`Request body create car`
+```
+{
+    "name": "F-Type",
+    "make": "Jaguar",
+    "modelyear": 2012,
+    "color": "black",
+    "speedrange": "0-350",
+    "TypeID": 2
+}
+```
+
 ### ERD Database
 ![Pic](/erd.png)
